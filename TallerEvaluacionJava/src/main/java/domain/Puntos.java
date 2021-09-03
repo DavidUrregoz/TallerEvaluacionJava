@@ -1,7 +1,9 @@
 package domain;
 
-import java.sql.SQLOutput;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+
 
 public class Puntos {
     private Scanner sc;
@@ -39,6 +41,8 @@ public class Puntos {
             System.out.println("por favor ingrese solo un numero");
         }
     }
+
+
     private void punto3(){
         sc= new Scanner(System.in);
         System.out.println("Ingrese el Radio del circulo");
@@ -51,15 +55,80 @@ public class Puntos {
         }
     }
 
+    private void punto4(){
+        sc= new Scanner(System.in);
+        System.out.println("Ingrese el precio del producto por favor");
+        String precio=sc.next();
+        if(comprobarNumero(precio)){
+            double precioDou=Double.valueOf(precio);
+            System.out.println("El precio del producto del producto con IVA es de: "+(precioDou + 0.21*precioDou));
+        }else
+            System.out.println("Ingrese un numero por favor");
+    }
+
+    private void punto5(){
+        List<Integer> pares=new ArrayList<>();
+        List<Integer> impares=new ArrayList<>();
+        int contador=0;
+        while(contador<=100){
+            if(contador%2==0){
+                pares.add(contador);
+            }else {
+                impares.add(contador);
+            }
+            contador+=1;
+        }
+        System.out.println("Lista de numeros pares");
+        pares.stream().forEach(System.out::println);
+        System.out.println("Lista de numeros Impares");
+        impares.stream().forEach(System.out::println);
+    }
+
+    private void punto6(){
+        List<Integer> pares=new ArrayList<>();
+        List<Integer> impares=new ArrayList<>();
+        for(int i=0;i<=100;i++){
+            if(i%2==0){
+                pares.add(i);
+            }else {
+                impares.add(i);
+            }
+        }
+        System.out.println("Lista de numeros pares");
+        pares.stream().forEach(System.out::println);
+        System.out.println("Lista de numeros Impares");
+        impares.stream().forEach(System.out::println);
+    }
+
+    private void punto7(){
+        sc= new Scanner(System.in);
+        int nEnte;
+        do {
+            System.out.println("Ingrese un numero ");
+            String nStr = sc.next();
+            if (comprobarNumero(nStr)) {
+                nEnte = Integer.parseInt(nStr);
+            }else {
+                System.out.println("Favor ingresar un numero");
+                nEnte=-69;
+                continue;
+            }
+        }while (nEnte <= 0);
+        System.out.println("Gracias");
+    }
+
+
     public boolean comprobarNumero(String n){
         if(n.matches("[+-]?\\d*(\\.\\d+)?"))
             return true;
         return false;
     }
 
+
+
     public static void main(String[] args) {
         Puntos punto =new Puntos();
-        punto.punto3();
+        punto.punto7();
     }
 
 
