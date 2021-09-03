@@ -1,7 +1,9 @@
 package domain;
 
+import javax.sound.midi.Soundbank;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Scanner;
 
 
@@ -117,6 +119,52 @@ public class Puntos {
         System.out.println("Gracias");
     }
 
+    private void punto8(){
+        sc= new Scanner(System.in);
+        System.out.println("Favor ingresar el nombre del dia " +
+                "de la semana");
+        String dia=sc.next();
+        dia=dia.toLowerCase();
+        switch (dia){
+            case "lunes":
+                System.out.println("Es un dia Laboral");
+                break;
+            case "martes":
+                System.out.println("Es un dia Laboral");
+                break;
+            case "miercoles":
+                System.out.println("Es un dia Laboral");
+                break;
+            case "jueves":
+                System.out.println("Es un dia Laboral");
+                break;
+            case "viernes":
+                System.out.println("Es un dia Laboral");
+                break;
+            case "sabado":
+                System.out.println("No es un dia Laboral");
+                break;
+            case "domingo":
+                System.out.println("No es un dia Laboral");
+                break;
+            default:
+                System.out.println("Ese no es un dia");
+        }
+
+    }
+
+    private void punto9(){
+        sc= new Scanner(System.in);
+        String frase="La sonrisa sera la mejor arma contra la tristeza";
+        frase = frase.replace('a','e');
+        System.out.println("La frase es: \n"+frase +"\nQue frase desena anexar?");
+        String frase2 =sc.nextLine();
+        System.out.println(frase + " "+frase2);
+
+    }
+
+
+
 
     public boolean comprobarNumero(String n){
         if(n.matches("[+-]?\\d*(\\.\\d+)?"))
@@ -124,11 +172,9 @@ public class Puntos {
         return false;
     }
 
-
-
     public static void main(String[] args) {
         Puntos punto =new Puntos();
-        punto.punto7();
+        punto.punto9();
     }
 
 
