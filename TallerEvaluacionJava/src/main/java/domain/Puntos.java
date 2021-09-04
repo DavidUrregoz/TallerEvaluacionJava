@@ -160,11 +160,31 @@ public class Puntos {
         System.out.println("La frase es: \n"+frase +"\nQue frase desena anexar?");
         String frase2 =sc.nextLine();
         System.out.println(frase + " "+frase2);
-
     }
 
+    private void punto10(){
+        sc= new Scanner(System.in);
+        System.out.println("Ingrese una frase");
+        String frase =sc.nextLine();
+        frase = frase.replace(" ","");
+        System.out.println(frase );
+    }
 
-
+    private void punto11(){
+        sc= new Scanner(System.in);
+        System.out.println("Ingrese una frase");
+        String frase =sc.nextLine();
+        System.out.println("La frase tiene una longitud de: "+frase.length());
+        char caracter;
+        int numeroVocales=0;
+        for(int i=0;i<frase.length();i++){
+            caracter=frase.toLowerCase().charAt(i);
+            if (caracter=='a' || caracter=='e' || caracter=='i' || caracter=='o' || caracter=='u'){
+                numeroVocales+=1;
+            }
+        }
+        System.out.println("y el numero de vocales es: " + numeroVocales);
+    }
 
     public boolean comprobarNumero(String n){
         if(n.matches("[+-]?\\d*(\\.\\d+)?"))
@@ -174,7 +194,7 @@ public class Puntos {
 
     public static void main(String[] args) {
         Puntos punto =new Puntos();
-        punto.punto9();
+        punto.punto11();
     }
 
 
