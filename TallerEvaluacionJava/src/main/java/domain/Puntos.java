@@ -1,10 +1,11 @@
 package domain;
 
-import javax.sound.midi.Soundbank;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.Scanner;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 
 public class Puntos {
@@ -186,6 +187,99 @@ public class Puntos {
         System.out.println("y el numero de vocales es: " + numeroVocales);
     }
 
+    private void punto12(){
+        sc= new Scanner(System.in);
+        String palabra1,palabra2;
+        char caracter1,caracter2;
+        int contador=0;
+        System.out.println("Ingrese una palabra");
+        palabra1=sc.next();
+        System.out.println("Ingrese otra palabra");
+        palabra2=sc.next();
+
+        if(palabra1.equals(palabra2)){
+            System.out.println("Son igiales ");
+        }else {
+            for(int i=0;i<palabra1.length();i++){
+                for(int j=0;j<palabra2.length();j++){
+                    caracter1=palabra1.toLowerCase().charAt(i);
+                    caracter2=palabra2.toLowerCase().charAt(j);
+                    if(caracter1 == caracter2){
+                        contador+=1;
+                    }
+                }
+            }
+            System.out.println("Las palabras conciden " + contador);
+        }
+    }
+
+    private void punto13(){
+        LocalDateTime fecha = LocalDateTime.now();
+        DateTimeFormatter formateador = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss a");
+        System.out.println(formateador.format(fecha));
+    }
+
+    private void punto14(){
+        sc = new Scanner(System.in);
+        System.out.println("Por favor introduzca un numero ");
+        String nStr=sc.next();
+        if(comprobarNumero(nStr)){
+            int nDoubl=Integer.parseInt(nStr);
+            for (int i = nDoubl;i<=1000;i=i+2){
+                System.out.println(i);
+            }
+        }
+    }
+
+    private void punto15(){
+        sc=new Scanner(System.in);
+        String opcion;
+        Boolean banderaSalir=true;
+        System.out.println("****** GESTION CINEMATOGRAFICA ********\n" +
+                "1-NUEVO ACTOR\n" +
+                "2-BUSCAR ACTOR\n" +
+                "3-ELIMINAR ACTOR\n" +
+                "4-MODIFICAR ACTOR\n" +
+                "5-VER TODOS LOS ACTORES\n" +
+                "6- VER PELICULAS DE LOS ACTORES\n" +
+                "7-VER CATEGORIA DE LAS PELICULAS DE LOS ACTORES\n" +
+                "8-SALIR");
+        while (banderaSalir){
+            opcion= sc.next();
+            switch (opcion){
+                case "1":
+                    System.out.println(" OPCION INCORRECTO");
+                    break;
+                case "2":
+                    System.out.println(" OPCION INCORRECTO");
+                    break;
+                case "3":
+                    System.out.println(" OPCION INCORRECTO");
+                    break;
+                case "4":
+                    System.out.println(" OPCION INCORRECTO");
+                    break;
+                case "5":
+                    System.out.println(" OPCION INCORRECTO");
+                    break;
+                case "6":
+                    System.out.println(" OPCION INCORRECTO");
+                    break;
+                case "7":
+                    System.out.println(" OPCION INCORRECTO");
+                    break;
+                case "8":
+                    System.out.println("SALISTE ");
+                    banderaSalir=false;
+                    break;
+                default:
+                    System.out.println(" OPCION INCORRECTO");
+                    break;
+            }
+        }
+    }
+
+
     public boolean comprobarNumero(String n){
         if(n.matches("[+-]?\\d*(\\.\\d+)?"))
             return true;
@@ -193,11 +287,9 @@ public class Puntos {
     }
 
     public static void main(String[] args) {
-        Puntos punto =new Puntos();
-        punto.punto11();
+        Puntos punto = new Puntos();
+        punto.punto15();
     }
-
-
 
 
 }
