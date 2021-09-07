@@ -1,6 +1,8 @@
 package domain;
 
 
+import com.sun.jdi.PathSearchingVirtualMachine;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
@@ -44,7 +46,6 @@ public class Puntos {
             System.out.println("por favor ingrese solo un numero");
         }
     }
-
 
     private void punto3(){
         sc= new Scanner(System.in);
@@ -187,29 +188,44 @@ public class Puntos {
         System.out.println("y el numero de vocales es: " + numeroVocales);
     }
 
-    private void punto12(){
-        sc= new Scanner(System.in);
-        String palabra1,palabra2;
-        char caracter1,caracter2;
-        int contador=0;
+    private void punto12() {
+        sc = new Scanner(System.in);
+        String palabra1, palabra2;
+        char caracter1, caracter2;
+        int contador = 0;
         System.out.println("Ingrese una palabra");
-        palabra1=sc.next();
+        palabra1 = sc.next();
         System.out.println("Ingrese otra palabra");
-        palabra2=sc.next();
+        palabra2 = sc.next();
+        List<Character> diferencias = new ArrayList<>();
 
-        if(palabra1.equals(palabra2)){
-            System.out.println("Son igiales ");
-        }else {
-            for(int i=0;i<palabra1.length();i++){
-                for(int j=0;j<palabra2.length();j++){
-                    caracter1=palabra1.toLowerCase().charAt(i);
-                    caracter2=palabra2.toLowerCase().charAt(j);
-                    if(caracter1 == caracter2){
-                        contador+=1;
-                    }
+        if (palabra1.equals(palabra2)) {
+            System.out.println("Son iguales ");
+        } else {
+            for (int i = 0; i < palabra1.length(); i++) {
+                caracter1 = palabra1.toLowerCase().charAt(i);
+                //System.out.println("caracter1="+caracter1 );
+                if (!diferencias.contains(caracter1)) {
+                    diferencias.add(caracter1);
                 }
+                for (int j = 0; j < palabra2.length(); j++) {
+                    caracter2 = palabra2.toLowerCase().charAt(j);
+                    if (!diferencias.contains(caracter2)) {
+                        diferencias.add(caracter2);
+                    }
+                    if (caracter1 == caracter2) {
+                        contador += 1;
+                        if(diferencias.contains(caracter2)){
+                            diferencias.remove(caracter2);
+                        }
+                    }
+
+                }
+
             }
             System.out.println("Las palabras conciden " + contador);
+            System.out.println("Las diferecias son " + diferencias);
+            //Hacerlo arreglo con todas las letras y quitar las repetidas (funcion lamda)
         }
     }
 
@@ -279,6 +295,10 @@ public class Puntos {
         }
     }
 
+    private void punto16(){
+
+    }
+
 
     public boolean comprobarNumero(String n){
         if(n.matches("[+-]?\\d*(\\.\\d+)?"))
@@ -288,7 +308,7 @@ public class Puntos {
 
     public static void main(String[] args) {
         Puntos punto = new Puntos();
-        punto.punto15();
+        punto.punto12();
     }
 
 
