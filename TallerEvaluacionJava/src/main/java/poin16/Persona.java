@@ -14,21 +14,23 @@ public class Persona {
     private double altura = 0;
 
     public Persona() {
+        generarDNI();
     }
 
-    public Persona(String nombre, int edad, char sexo, double peso) {
+    public Persona(String nombre, int edad, char sexo) {
         this.nombre = nombre;
         this.edad = edad;
         this.sexo = sexo;
+        generarDNI();
     }
 
-    public Persona(String nombre, int edad, String DNI, char sexo, double peso, double altura) {
+    public Persona(String nombre, int edad, char sexo, double peso, double altura) {
         this.nombre = nombre;
         this.edad = edad;
-        this.DNI = DNI;
         this.sexo = sexo;
         this.peso = peso;
         this.altura = altura;
+        generarDNI();
     }
 
     public void setNombre(String nombre) {
@@ -52,7 +54,7 @@ public class Persona {
     }
 
     public int calcularIMC(){
-        double salida = this.peso/(Math.pow(this.altura,2));
+        double salida = this.peso/(Math.pow(this.altura*0.01 ,2));
         if(salida < 20)
             return -1;
         else if(salida > 25)
@@ -73,7 +75,7 @@ public class Persona {
     private void comprobarSexo(char sexo){
         if(sexo == 'M' || sexo=='m'){
             this.sexo= 'M';
-        }else {
+        }else{
             this.sexo = 'H';
         }
     }
@@ -82,7 +84,7 @@ public class Persona {
         double numero =  Math.random()*99999999;
         long numero2 = Math.round(numero);
         this.DNI=gernerarNumCaracter(numero2);
-        System.out.println(this.DNI);
+        //System.out.println(this.DNI);
     }
 
     private String gernerarNumCaracter(long numero2){
@@ -94,7 +96,7 @@ public class Persona {
     @Override
     public String toString() {
         return "Persona{" +
-                "nombre='" + nombre + '\'' +
+                "nombre = '" + nombre + '\'' +
                 ", edad=" + edad +
                 ", DNI='" + DNI + '\'' +
                 ", sexo=" + sexo +
@@ -103,39 +105,5 @@ public class Persona {
                 '}';
     }
 
-
-    public boolean pedirAltura(){
-        System.out.println("Ingrese por favos su Altura");
-        String alturaTemporal=sc.next();
-        if(Puntos.comprobarNumero(alturaTemporal)){
-            this.altura=Integer.parseInt(alturaTemporal);
-            return false;
-        }else {
-            System.out.println("Solo numeros \n");
-            return true;
-        }
-    }
-    public boolean pedirEdad(){
-        System.out.println("Ingrese por favos su edad");
-        String edadTemporal=sc.next();
-        if(Puntos.comprobarNumero(edadTemporal)){
-            this.edad=Integer.parseInt(edadTemporal);
-            return false;
-        }else {
-            System.out.println("Solo numeros \n");
-            return true;
-        }
-    }
-    public boolean pedirPeso(){
-        System.out.println("Ingrese por favor su peso");
-        String pesoTemporal=sc.next();
-        if(Puntos.comprobarNumero(pesoTemporal)){
-            this.peso=Integer.parseInt(pesoTemporal);
-            return false;
-        }else{
-            System.out.println("Solo numeros \n");
-            return true;
-        }
-    }
 
 }
