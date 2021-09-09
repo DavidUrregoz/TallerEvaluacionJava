@@ -4,13 +4,14 @@ import com.sun.source.doctree.SummaryTree;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
+
 
 public class Electrodomestico {
     protected double precioBase = 100;
     protected String color = "blanco";
     protected char consumo = 'F';
     protected double peso = 5;
+    protected double precioTotal=0;
 
     public Electrodomestico(){
 
@@ -70,7 +71,7 @@ public class Electrodomestico {
         }
     }
 
-    public double prcioFinal(){
+    public void prcioFinal(){
         double suma = 0;
         //CONSUMO
         switch (this.consumo){
@@ -93,7 +94,6 @@ public class Electrodomestico {
                 suma+=10;
                 break;
         }
-
         //TAMANIO
         if(this.peso > 0 && this.peso<=19){
             suma+=10;
@@ -104,9 +104,7 @@ public class Electrodomestico {
         }else if(this.peso >= 80 ){
             suma+=100;
         }
-
-
-        return this.precioBase + suma;
+        this.precioTotal = this.precioBase + suma;
     }
 
 
