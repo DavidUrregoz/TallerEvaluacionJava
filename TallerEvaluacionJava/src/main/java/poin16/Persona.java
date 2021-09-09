@@ -1,4 +1,4 @@
-package domain;
+package poin16;
 
 public class Persona {
     private String nombre="";
