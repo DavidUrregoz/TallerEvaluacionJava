@@ -110,8 +110,4 @@ public class Electrodomestico {
     }
 
 
-    public static void main(String[] args) {
-        Electrodomestico ele = new Electrodomestico(100,"rojo",'a',60);
-        System.out.println(ele.prcioFinal());
-    }
 }

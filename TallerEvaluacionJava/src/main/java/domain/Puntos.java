@@ -1,8 +1,6 @@
 package domain;
 
 
-import com.sun.jdi.PathSearchingVirtualMachine;
-
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
@@ -204,7 +202,6 @@ public class Puntos {
         } else {
             for (int i = 0; i < palabra1.length(); i++) {
                 caracter1 = palabra1.toLowerCase().charAt(i);
-                //System.out.println("caracter1="+caracter1 );
                 if (!diferencias.contains(caracter1)) {
                     diferencias.add(caracter1);
                 }
@@ -251,7 +248,7 @@ public class Puntos {
         sc=new Scanner(System.in);
         String opcion;
         Boolean banderaSalir=true;
-        System.out.println("****** GESTION CINEMATOGRAFICA ********\n" +
+        String mensaje="****** GESTION CINEMATOGRAFICA ********\n" +
                 "1-NUEVO ACTOR\n" +
                 "2-BUSCAR ACTOR\n" +
                 "3-ELIMINAR ACTOR\n" +
@@ -259,48 +256,45 @@ public class Puntos {
                 "5-VER TODOS LOS ACTORES\n" +
                 "6- VER PELICULAS DE LOS ACTORES\n" +
                 "7-VER CATEGORIA DE LAS PELICULAS DE LOS ACTORES\n" +
-                "8-SALIR");
+                "8-SALIR";
+        System.out.println(mensaje);
         while (banderaSalir){
             opcion= sc.next();
             switch (opcion){
                 case "1":
-                    System.out.println(" OPCION INCORRECTO");
+                    System.out.println(mensaje);
                     break;
                 case "2":
-                    System.out.println(" OPCION INCORRECTO");
+                    System.out.println(mensaje);
                     break;
                 case "3":
-                    System.out.println(" OPCION INCORRECTO");
+                    System.out.println(mensaje);
                     break;
                 case "4":
-                    System.out.println(" OPCION INCORRECTO");
+                    System.out.println(mensaje);
                     break;
                 case "5":
-                    System.out.println(" OPCION INCORRECTO");
+                    System.out.println(mensaje);
                     break;
                 case "6":
-                    System.out.println(" OPCION INCORRECTO");
+                    System.out.println(mensaje);
                     break;
                 case "7":
-                    System.out.println(" OPCION INCORRECTO");
+                    System.out.println(mensaje);
                     break;
                 case "8":
                     System.out.println("SALISTE ");
                     banderaSalir=false;
                     break;
                 default:
-                    System.out.println(" OPCION INCORRECTO");
+                    System.out.println("OPCION INCORRECTO");
                     break;
             }
         }
     }
 
-    private void punto16(){
 
-    }
-
-
-    public boolean comprobarNumero(String n){
+    public static boolean comprobarNumero(String n){
         if(n.matches("[+-]?\\d*(\\.\\d+)?"))
             return true;
         return false;
@@ -308,7 +302,7 @@ public class Puntos {
 
     public static void main(String[] args) {
         Puntos punto = new Puntos();
-        punto.punto12();
+        punto.punto15();
     }
 
 
