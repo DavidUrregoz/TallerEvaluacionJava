@@ -1,6 +1,11 @@
 package poin16;
 
+import domain.Puntos;
+
+import java.util.Scanner;
+
 public class Persona {
+    private Scanner sc =new Scanner(System.in) ;
     private String nombre="";
     private int edad = 0;
     private String DNI;
@@ -76,8 +81,14 @@ public class Persona {
     private void generarDNI(){
         double numero =  Math.random()*99999999;
         long numero2 = Math.round(numero);
-        char numeroLetra=(char) (Math.round(numero2%23)+65);
-        this.DNI= ""+numero2 + numeroLetra;
+        this.DNI=gernerarNumCaracter(numero2);
+        System.out.println(this.DNI);
+    }
+
+    private String gernerarNumCaracter(long numero2){
+        String caracteres="TRWAGMYFPDXBNJZSQVHLCKE";
+        char numeroLetra= caracteres.charAt(Math.round(numero2%23));
+        return  ""+numero2 + numeroLetra;
     }
 
     @Override
@@ -92,9 +103,39 @@ public class Persona {
                 '}';
     }
 
-    public static void main(String[] args) {
-        Persona persona1 = new Persona();
-        persona1.generarDNI();
+
+    public boolean pedirAltura(){
+        System.out.println("Ingrese por favos su Altura");
+        String alturaTemporal=sc.next();
+        if(Puntos.comprobarNumero(alturaTemporal)){
+            this.altura=Integer.parseInt(alturaTemporal);
+            return false;
+        }else {
+            System.out.println("Solo numeros \n");
+            return true;
+        }
+    }
+    public boolean pedirEdad(){
+        System.out.println("Ingrese por favos su edad");
+        String edadTemporal=sc.next();
+        if(Puntos.comprobarNumero(edadTemporal)){
+            this.edad=Integer.parseInt(edadTemporal);
+            return false;
+        }else {
+            System.out.println("Solo numeros \n");
+            return true;
+        }
+    }
+    public boolean pedirPeso(){
+        System.out.println("Ingrese por favor su peso");
+        String pesoTemporal=sc.next();
+        if(Puntos.comprobarNumero(pesoTemporal)){
+            this.peso=Integer.parseInt(pesoTemporal);
+            return false;
+        }else{
+            System.out.println("Solo numeros \n");
+            return true;
+        }
     }
 
 }
