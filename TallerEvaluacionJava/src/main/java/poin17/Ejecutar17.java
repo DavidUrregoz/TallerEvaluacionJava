@@ -28,6 +28,7 @@ public class Ejecutar17 {
         lista.add(tv1);
         lista.add(tv2);
         lista.add(tv3);
+        precioFinal();
     }
 
     public void precioFinal(){

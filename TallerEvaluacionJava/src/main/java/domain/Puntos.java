@@ -1,6 +1,8 @@
 package domain;
 
 
+import poin16.EjecutarPeronsa;
+import poin17.Ejecutar17;
 import poin18.Ejecutar18;
 
 import java.text.DateFormat;
@@ -11,7 +13,7 @@ import java.util.*;
 
 
 public class Puntos {
-    private Scanner sc;
+    public Scanner sc;
 
     private void punto1(){
         double n1,n2;
@@ -295,6 +297,14 @@ public class Puntos {
         }
     }
 
+    private void punto16(){
+        EjecutarPeronsa ejec16=new EjecutarPeronsa();
+    }
+
+    private void punto17(){
+        Ejecutar17 ejec17=new Ejecutar17();
+    }
+
     private void punto18(){
         Ejecutar18 ejecuta= new Ejecutar18();
     }
@@ -308,8 +318,87 @@ public class Puntos {
 
 
     public static void main(String[] args) {
-        Puntos puntos= new Puntos();
-        puntos.punto18();
+        Scanner sc2=new Scanner(System.in);
+        Puntos puntos = new Puntos();
+        int eleccion;
+        boolean salida= true;
+
+        while (salida) {
+            System.out.println("***********************************************************************************************************************");
+            System.out.println("Por favor ingrese un numero del 1 al 18 para proceder a ver dicho ejercicio");
+            System.out.println("PRESIONE 0 PARA SALIR");
+            ;
+            String temporal = sc2.next();
+            if (comprobarNumero(temporal)) {
+                eleccion = Integer.parseInt(temporal);
+            } else {
+                System.out.println("Ese no es un numero ");
+                continue;
+            }
+            switch (eleccion){
+                case 1:
+                    puntos.punto1();
+                    break;
+                case 2:
+                    puntos.punto2();
+                    break;
+                case 3:
+                    puntos.punto3();
+                    break;
+                case 4:
+                    puntos.punto4();
+                    break;
+                case 5:
+                    puntos.punto5();
+                    break;
+                case 6:
+                    puntos.punto6();
+                    break;
+                case 7:
+                    puntos.punto7();
+                    break;
+                case 8:
+                    puntos.punto8();
+                    break;
+                case 9:
+                    puntos.punto9();
+                    break;
+                case 10:
+                    puntos.punto10();
+                    break;
+                case 11:
+                    puntos.punto11();
+                    break;
+                case 12:
+                    puntos.punto12();
+                    break;
+                case 13:
+                    puntos.punto13();
+                    break;
+                case 14:
+                    puntos.punto14();
+                    break;
+                case 15:
+                    puntos.punto15();
+                    break;
+                case 16:
+                    puntos.punto16();
+                    break;
+                case 17:
+                    puntos.punto17();
+                    break;
+                case 18:
+                    puntos.punto18();
+                    break;
+                case 0:
+                    salida=false;
+                    break;
+                default:
+                    System.out.println("Ese no es un punto ");
+                    break;
+            }
+        }
+
     }
 
 

@@ -93,9 +93,4 @@ public class EjecutarPeronsa {
         }
     }
 
-
-
-    public static void main(String[] args) {
-        EjecutarPeronsa jej =new EjecutarPeronsa();
-    }
 }
