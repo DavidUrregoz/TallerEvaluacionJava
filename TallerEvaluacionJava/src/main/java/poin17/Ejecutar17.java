@@ -54,9 +54,4 @@ public class Ejecutar17 {
                 "\nPARA UNA SUMA DE "+(sumaEle+sumalava+sumatvs));
     }
 
-    public static void main(String[] args) {
-        Ejecutar17 eje=new Ejecutar17();
-        eje.precioFinal();
-    }
-
 }
