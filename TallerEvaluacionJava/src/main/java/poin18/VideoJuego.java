@@ -72,7 +72,7 @@ public class VideoJuego implements Entregable{
 
     @Override
     public void devolver() {
-        this.entregado=false
+        this.entregado=false;
     }
 
     @Override

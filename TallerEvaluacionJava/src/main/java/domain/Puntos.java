@@ -1,6 +1,8 @@
 package domain;
 
 
+import poin18.Ejecutar18;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
@@ -293,6 +295,10 @@ public class Puntos {
         }
     }
 
+    private void punto18(){
+        Ejecutar18 ejecuta= new Ejecutar18();
+    }
+
 
     public static boolean comprobarNumero(String n){
         if(n.matches("[+-]?\\d*(\\.\\d+)?"))
@@ -302,8 +308,8 @@ public class Puntos {
 
 
     public static void main(String[] args) {
-        Puntos punto = new Puntos();
-        punto.punto15();
+        Puntos puntos= new Puntos();
+        puntos.punto18();
     }
 
 
