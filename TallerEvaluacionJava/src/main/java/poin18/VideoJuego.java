@@ -1,6 +1,6 @@
 package poin18;
 
-public class VideoJuego {
+public class VideoJuego implements Entregable{
     private String titulo;
     private int horasEstimadas =10;
     private boolean entregado =false;
@@ -65,4 +65,32 @@ public class VideoJuego {
                 '}';
     }
 
+    @Override
+    public void entregar() {
+        this.entregado=true;
+    }
+
+    @Override
+    public void devolver() {
+        this.entregado=false
+    }
+
+    @Override
+    public boolean inEntregado() {
+        return this.entregado;
+    }
+
+    @Override
+    public int compareTo(Object a) {
+        if (a instanceof VideoJuego) {
+            VideoJuego b = (VideoJuego) a;
+            if (this.horasEstimadas > b.horasEstimadas) {
+                return 1;
+            } else if (this.horasEstimadas < b.horasEstimadas) {
+                return -1;
+            } else
+                return 0;
+        }else
+            return 0;
+    }
 }

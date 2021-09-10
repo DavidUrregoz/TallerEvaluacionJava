@@ -1,6 +1,6 @@
 package poin18;
 
-public class Serie {
+public class Serie implements Entregable{
     private String titulo;
     private int numeroTemporadas = 3;
     private boolean entregado = false;
@@ -64,4 +64,36 @@ public class Serie {
                 ", creador='" + creador + '\'' +
                 '}';
     }
+
+
+    @Override
+    public void entregar() {
+        this.entregado=true;
+    }
+
+    @Override
+    public void devolver() {
+        this.entregado=false
+    }
+
+    @Override
+    public boolean inEntregado() {
+        return this.entregado;
+    }
+
+    @Override
+    public int compareTo(Object a) {
+        if (a instanceof Serie) {
+            Serie b = (Serie)a;
+            if (this.numeroTemporadas > b.numeroTemporadas) {
+                return 1;
+            } else if (this.numeroTemporadas < b.numeroTemporadas) {
+                return -1;
+            }else
+                return 0;
+        }else
+            return 0;
+
+    }
+
 }
