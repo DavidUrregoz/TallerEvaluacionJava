@@ -5,10 +5,12 @@ public class Televisor extends Electrodomestico{
     private boolean sintonizadorTDT=false;
 
     public Televisor() {
+        prcioFinal();
     }
 
     public Televisor(double precioBase, double peso) {
         super(precioBase, peso);
+        prcioFinal();
     }
 
     public Televisor(double precioBase, String color,
@@ -16,6 +18,7 @@ public class Televisor extends Electrodomestico{
         super(precioBase, color, consumo, peso);
         this.resolucion = resolucion;
         this.sintonizadorTDT = sintonizadorTDT;
+        prcioFinal();
     }
 
     public double getResolucion() {

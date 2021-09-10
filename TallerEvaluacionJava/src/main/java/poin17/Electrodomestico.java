@@ -14,12 +14,13 @@ public class Electrodomestico {
     protected double precioTotal=0;
 
     public Electrodomestico(){
-
+        prcioFinal();
     }
 
     public Electrodomestico(double precioBase, double peso) {
         this.precioBase = precioBase;
         this.peso = peso;
+        prcioFinal();
     }
 
     public Electrodomestico(double precioBase, String color, char consumo, double peso) {
@@ -27,7 +28,7 @@ public class Electrodomestico {
         comprobarColor(color);
         comprobarConsumoEnergetico(consumo);
         this.peso = peso;
-
+        prcioFinal();
     }
 
     public double getPrecioBase() {
@@ -52,7 +53,6 @@ public class Electrodomestico {
         letra =letratempora.toUpperCase().charAt(0);
         String letrasCorrectas = "ABCDEFabcdef";
         if(letrasCorrectas.contains(""+letra)){
-            System.out.println("Consumo valido");
             this.consumo=letra;
         }
     }
@@ -65,8 +65,6 @@ public class Electrodomestico {
         for (int i=0; i < colores.size() ;i++){
             if(color.equals(colores.get(i))){
                 this.color=color;
-            }else {
-                System.out.println("no esta el color");
             }
         }
     }
