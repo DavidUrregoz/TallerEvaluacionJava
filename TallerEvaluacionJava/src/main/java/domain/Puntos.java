@@ -300,6 +300,7 @@ public class Puntos {
         return false;
     }
 
+
     public static void main(String[] args) {
         Puntos punto = new Puntos();
         punto.punto15();
